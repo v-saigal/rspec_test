@@ -8,10 +8,15 @@ class GrammarStats
       # text is a string
       # Returns true or false depending on whether the text begins with a capital
       # letter and ends with a sentence-ending punctuation mark.
+      # spec_chars =~ /[!@.,£$%^&*()]/
       @str = text
       fail "Must enter text string, minimum 2 characters" unless @str.length() >= 2
       if @str[0] == @str[0].upcase && @str[-1] == '.'
-        @str_arr << true
+        if @str[0] =~ /[!@.,£$%^&*()]/
+          @str_arr << false
+        else
+          @str_arr << true
+        end
       else
         @str_arr << false
       end    
