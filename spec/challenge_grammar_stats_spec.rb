@@ -31,7 +31,8 @@ RSpec.describe GrammarStats do
             str.check("This should be false")
             str.check("this should be false.")
             str.check("TT")
-            expect(str.percentage_good).to eq 25
+            str.check("..")
+            expect(str.percentage_good).to eq 20
         end
     
     end
