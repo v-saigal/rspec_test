@@ -1,42 +1,35 @@
-require "test_drive_class.rb"
+require 'diary_entry.rb'
 
 RSpec.describe DiaryEntry do
-    context "return title" do
-        it "it returns test" do
-            test = DiaryEntry.new("test", "test content")    
-            result = test.title
-            expect(result).to eq "test"
+    context "initialize diary entry" do
+        it "return title" do
+            title = DiaryEntry.new("diary title", "diary contents")
+            result = title.title()
+            expect(result).to eq "diary title"
         end
     end
 
-    context "return contents" do
-        it "it returns contents" do
-            test = DiaryEntry.new("test", "test content")    
-            result = test.contents
-            expect(result).to eq "test content"
+    context "initialize diary entry" do
+        it "return contents" do
+            title = DiaryEntry.new("diary title", "diary contents")
+            result = title.contents()
+            expect(result).to eq "diary contents"
         end
     end
 
-    context "word count" do
-        it "returns the number of words in string" do
-            test = DiaryEntry.new("test", "test " * 100)    
-            result = test.count_words
-            expect(result).to eq 100
+    context "initialize diary entry" do
+        it "return words count" do
+            title = DiaryEntry.new("diary title", "diary contents")
+            result = title.count_words
+            expect(result).to eq 2
         end
     end
 
-    context "reading time" do
-        it "time taken to read contents" do
-            test = DiaryEntry.new("test", "test " * 100)    
-            result = test.reading_time(100)
+    context "time taken to read" do
+        it "return time taken to read contents" do
+            read = DiaryEntry.new("diary title", "diary contents " * 100)
+            result = read.reading_time(200)
             expect(result).to eq 1
-        end
-    end
-
-    context "reading time" do
-        it "fails if wpm is zero" do
-            test = DiaryEntry.new("test", "test " * 100)   
-            expect { test.reading_time(0) }.to raise_error "Reading speed must be above zero"
         end
     end
 
@@ -65,4 +58,5 @@ RSpec.describe DiaryEntry do
             expect(result).to eq ("test2 " * 100).strip
         end
     end
+
 end
